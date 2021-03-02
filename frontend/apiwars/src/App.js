@@ -7,7 +7,7 @@ function App() {
   const [currentPage, setCurrentPage] = useState(1);
   const planets = usePlanets(currentPage);
 
-  function nextPage(e) {
+  function nextPage() {
     planets.next !== null ? setCurrentPage(currentPage + 1) : setCurrentPage(6);
   }
 
