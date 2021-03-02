@@ -1,3 +1,5 @@
+import Planet from "./Planet";
+
 function Table({ planets }) {
   return (
     <table>
@@ -14,17 +16,7 @@ function Table({ planets }) {
       </thead>
       <tbody>
         {planets.map((planet) => (
-          <tr key={planet.name}>
-            <td>{planet.name}</td>
-            <td>{planet.diameter}</td>
-            <td>{planet.climate}</td>
-            <td>{planet.terrain}</td>
-            <td>{planet.surface_water}</td>
-            <td>{planet.population}</td>
-            <td>
-              <button>{planet.residents.length} residents</button>
-            </td>
-          </tr>
+          <Planet planet={planet} />
         ))}
       </tbody>
     </table>
