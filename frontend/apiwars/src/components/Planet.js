@@ -1,4 +1,12 @@
 function Planet({ planet }) {
+  let residentBtn = "";
+
+  if (planet.residents.length === 0) {
+    residentBtn = "No known residents";
+  } else {
+    residentBtn = <button>{planet.residents.length} resident(s)</button>;
+  }
+
   return (
     <tr key={planet.name}>
       <td>{planet.name}</td>
@@ -7,9 +15,7 @@ function Planet({ planet }) {
       <td>{planet.terrain}</td>
       <td>{planet.surface_water}</td>
       <td>{planet.population}</td>
-      <td>
-        <button>{planet.residents.length} residents</button>
-      </td>
+      <td>{residentBtn}</td>
     </tr>
   );
 }
