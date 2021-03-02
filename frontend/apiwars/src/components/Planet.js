@@ -1,14 +1,18 @@
-function Planet({ planet }) {
+function Planet({ planet, showResidents }) {
   let residentBtn = "";
 
   if (planet.residents.length === 0) {
     residentBtn = "No known residents";
   } else {
-    residentBtn = <button>{planet.residents.length} resident(s)</button>;
+    residentBtn = (
+      <button onClick={showResidents}>
+        {planet.residents.length} resident(s)
+      </button>
+    );
   }
 
   return (
-    <tr key={planet.name}>
+    <tr>
       <td>{planet.name}</td>
       <td>{planet.diameter}</td>
       <td>{planet.climate}</td>

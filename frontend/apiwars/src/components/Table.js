@@ -1,4 +1,5 @@
 import Planet from "./Planet";
+import { showRes } from "./ajax";
 
 function Table({ planets }) {
   return (
@@ -15,8 +16,8 @@ function Table({ planets }) {
         </tr>
       </thead>
       <tbody>
-        {planets.map((planet) => (
-          <Planet planet={planet} />
+        {planets.map((planet, index) => (
+          <Planet planet={planet} showResidents={showRes} key={index} />
         ))}
       </tbody>
     </table>
