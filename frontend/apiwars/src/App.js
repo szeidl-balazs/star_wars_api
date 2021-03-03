@@ -2,9 +2,12 @@ import "./App.scss";
 import Table from "./components/Table";
 import { useState } from "react";
 import { usePlanets } from "./components/fetch";
+/*import Modaltable from "./components/Modaltable";*/
 
 function App() {
   const [currentPage, setCurrentPage] = useState(1);
+ 
+
   const planets = usePlanets(currentPage);
 
   function nextPage() {
@@ -27,8 +30,10 @@ function App() {
       <button onClick={prevPage}>previous</button>
       <button onClick={nextPage}>next</button>
       <Table planets={planets.results}></Table>
+      {/*<Modaltable residentsArray={planets.results[0].residents} />*/}
     </div>
   );
 }
+
 
 export default App;

@@ -13,7 +13,7 @@ export const useFetch = (initUrl) => {
       .then((json) => setData(json));
   }, [url]);
 
-  return [data, setUrl];
+   return [data, setUrl];  
 };
 
 export const usePlanets = (page = 1) => {
@@ -25,3 +25,4 @@ export const usePlanets = (page = 1) => {
   }, [page]);
   return planets === undefined ? "Loading..." : planets;
 };
+

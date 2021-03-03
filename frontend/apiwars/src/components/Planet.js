@@ -1,12 +1,26 @@
-function Planet({ planet, showResidents }) {
+import React, {useState, useEffect} from 'react';
+
+function Planet({ planet, setResidentUrl }) {
   let residentBtn = "";
+
+  const [btnClick, setBtnClick] = useState(false) 
+  
+  
+  useEffect (() => {
+    setBtnClick();    
+  }, [btnClick]);
+
+  const clickHandler = () => {
+    setBtnClick(true);
+    setResidentUrl(planet.residents);  //a residentUrl statet írjuk át a residenseket tartalmazó objectekre
+  };
 
   if (planet.residents.length === 0) {
     residentBtn = "No known residents";
   } else {
     residentBtn = (
-      <button onClick={showResidents}>
-        {planet.residents.length} resident(s)
+      <button onClick={clickHandler}>
+        {planet.residents.length} resident(s)        
       </button>
     );
   }
@@ -20,7 +34,7 @@ function Planet({ planet, showResidents }) {
       <td>{planet.surface_water}</td>
       <td>{planet.population}</td>
       <td>{residentBtn}</td>
-    </tr>
+    </tr>    
   );
 }
 

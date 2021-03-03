@@ -1,8 +1,12 @@
 import Planet from "./Planet";
-import { showRes } from "./ajax";
+import React, {useState} from 'react';
+import Modaltable from './Modaltable';
+
 
 function Table({ planets }) {
+  const [residentUrl, setResidentUrl] = useState([]);
   return (
+    <div>
     <table>
       <thead>
         <tr>
@@ -17,10 +21,12 @@ function Table({ planets }) {
       </thead>
       <tbody>
         {planets.map((planet, index) => (
-          <Planet planet={planet} showResidents={showRes} key={index} />
+          <Planet planet={planet} key={index} setResidentUrl={setResidentUrl} />
         ))}
       </tbody>
     </table>
+    <Modaltable residentsArray={residentUrl} />
+    </div>
   );
 }
 
