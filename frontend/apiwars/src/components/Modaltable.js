@@ -5,7 +5,6 @@ import Table from 'react-bootstrap/Table'
 const Modaltable = ({ residentsArray }) => {
   return (
     <div>
-      <h1>Residents</h1>
       <Table bordered>
         <thead>
           <tr>

@@ -19,7 +19,10 @@ function Tables({ planets }) {
     modale = (
       <div id="modal-container">
         <div id="modal">
-          <button onClick={clickHandler}>X</button>
+          <div className="modal_header">
+            <h1>Residents</h1>
+            <button onClick={clickHandler}>X</button>
+          </div>
           <Modaltable residentsArray={residentUrl} />
           <Button onClick={clickHandler}>Close</Button>
         </div>
