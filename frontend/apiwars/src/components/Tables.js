@@ -1,8 +1,11 @@
 import Planet from "./Planet";
 import React, { useState } from "react";
 import Modaltable from "./Modaltable";
+import Table from 'react-bootstrap/Table'
+import Button from 'react-bootstrap/Button';
 
-function Table({ planets }) {
+
+function Tables({ planets }) {
   const [residentUrl, setResidentUrl] = useState([]);
   const [btnClick, setBtnClick] = useState(false);
 
@@ -14,9 +17,12 @@ function Table({ planets }) {
 
   if (btnClick) {
     modale = (
-      <div>
-        <Modaltable residentsArray={residentUrl} />
-        <button onClick={clickHandler}>Close</button>
+      <div id="modal-container">
+        <div id="modal">
+          <button onClick={clickHandler}>X</button>
+          <Modaltable residentsArray={residentUrl} />
+          <Button onClick={clickHandler}>Close</Button>
+        </div>
       </div>
     );
   } else {
@@ -25,7 +31,7 @@ function Table({ planets }) {
 
   return (
     <div>
-      <table>
+      <Table bordered>
         <thead>
           <tr>
             <th>Name</th>
@@ -47,10 +53,10 @@ function Table({ planets }) {
             />
           ))}
         </tbody>
-      </table>
+      </Table>
       {modale}
     </div>
   );
 }
 
-export default Table;
+export default Tables;

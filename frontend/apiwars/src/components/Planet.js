@@ -1,3 +1,5 @@
+import Button from 'react-bootstrap/Button';
+
 function Planet({ planet, setResidentUrl, setBtnClick }) {
   let residentBtn = "";
 
@@ -10,9 +12,9 @@ function Planet({ planet, setResidentUrl, setBtnClick }) {
     residentBtn = "No known residents";
   } else {
     residentBtn = (
-      <button onClick={clickHandler}>
+      <Button id="resident_btn" variant="secondary" onClick={clickHandler}>
         {planet.residents.length} resident(s)
-      </button>
+      </Button>
     );
   }
 
@@ -22,7 +24,7 @@ function Planet({ planet, setResidentUrl, setBtnClick }) {
       <td>
         {planet.diameter === "unknown"
           ? planet.diameter
-          : planet.diameter + " km"}
+          : planet.diameter.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",") + " km"}
       </td>
       <td>{planet.climate}</td>
       <td>{planet.terrain}</td>
@@ -34,7 +36,7 @@ function Planet({ planet, setResidentUrl, setBtnClick }) {
       <td>
         {planet.population === "unknown"
           ? planet.population
-          : planet.population + " people"}
+          : planet.population.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",") + " people"}
       </td>
       <td>{residentBtn}</td>
     </tr>

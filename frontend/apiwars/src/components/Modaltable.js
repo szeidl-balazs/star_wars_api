@@ -1,10 +1,12 @@
 import Resident from "./Residents";
+import Table from 'react-bootstrap/Table'
+
 
 const Modaltable = ({ residentsArray }) => {
   return (
     <div>
-      <h1>Residents of</h1>
-      <table>
+      <h1>Residents</h1>
+      <Table bordered>
         <thead>
           <tr>
             <th>Name</th>
@@ -22,7 +24,7 @@ const Modaltable = ({ residentsArray }) => {
             <Resident key={index} residentData={resident} />
           ))}
         </tbody>
-      </table>
+      </Table>
     </div>
   );
 };
