@@ -4,6 +4,8 @@ import PlanetList from "./components/PlanetList";
 import { Navigation } from "./components/Navigation";
 import { Login } from "./components/Login";
 import { Registration } from "./components/Registration";
+import  Sike  from "./components/Sike";
+
 
 function App() {
 
@@ -15,6 +17,7 @@ function App() {
           <Route path="/" exact component={PlanetList}/>
           <Route path="/login" component={Login}/>
           <Route path="/registration" component={Registration}/>
+          <Route path="/sike" component={Sike}/>
         </Switch>
       </div>
     </Router>

@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from "react-router-dom"
 
 export function Login() {
   return (
@@ -9,7 +10,9 @@ export function Login() {
           <input type="text" placeholder="Username"></input>
           <label>Password: </label>
           <input type="password" placeholder="Password"></input>
-          <button>Login</button>
+          <Link className="link" to="/sike">
+            <button>Login</button>
+          </Link>
         </div>
       </div>
   )
