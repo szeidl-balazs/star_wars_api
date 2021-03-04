@@ -1,18 +1,9 @@
-import React, {useState, useEffect} from 'react';
-
-function Planet({ planet, setResidentUrl }) {
+function Planet({ planet, setResidentUrl, setBtnClick }) {
   let residentBtn = "";
-
-  const [btnClick, setBtnClick] = useState(false) 
-  
-  
-  useEffect (() => {
-    setBtnClick();    
-  }, [btnClick]);
 
   const clickHandler = () => {
     setBtnClick(true);
-    setResidentUrl(planet.residents);  //a residentUrl statet írjuk át a residenseket tartalmazó objectekre
+    setResidentUrl(planet.residents); //a residentUrl statet írjuk át a residenseket tartalmazó objectekre
   };
 
   if (planet.residents.length === 0) {
@@ -20,7 +11,7 @@ function Planet({ planet, setResidentUrl }) {
   } else {
     residentBtn = (
       <button onClick={clickHandler}>
-        {planet.residents.length} resident(s)        
+        {planet.residents.length} resident(s)
       </button>
     );
   }
@@ -28,13 +19,25 @@ function Planet({ planet, setResidentUrl }) {
   return (
     <tr>
       <td>{planet.name}</td>
-      <td>{planet.diameter}</td>
+      <td>
+        {planet.diameter === "unknown"
+          ? planet.diameter
+          : planet.diameter + " km"}
+      </td>
       <td>{planet.climate}</td>
       <td>{planet.terrain}</td>
-      <td>{planet.surface_water}</td>
-      <td>{planet.population}</td>
+      <td>
+        {planet.surface_water === "unknown"
+          ? planet.surface_water
+          : planet.surface_water + "%"}
+      </td>
+      <td>
+        {planet.population === "unknown"
+          ? planet.population
+          : planet.population + " people"}
+      </td>
       <td>{residentBtn}</td>
-    </tr>    
+    </tr>
   );
 }
 

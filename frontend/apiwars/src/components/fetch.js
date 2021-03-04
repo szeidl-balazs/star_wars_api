@@ -13,7 +13,7 @@ export const useFetch = (initUrl) => {
       .then((json) => setData(json));
   }, [url]);
 
-   return [data, setUrl];  
+  return [data, setUrl];
 };
 
 export const usePlanets = (page = 1) => {
@@ -22,7 +22,6 @@ export const usePlanets = (page = 1) => {
   );
   useEffect(() => {
     setUrl(`https://swapi.dev/api/planets/?page=${page}`);
-  }, [page]);
+  }, [page, setUrl]);
   return planets === undefined ? "Loading..." : planets;
 };
-
