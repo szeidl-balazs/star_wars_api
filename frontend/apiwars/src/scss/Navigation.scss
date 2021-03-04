@@ -36,3 +36,11 @@ header {
 .header {
   display: flex;
 }
+
+.link:hover,
+.link:visited,
+.link:link,
+.link:active {
+  text-decoration: none;
+  color: #212529;
+}
